@@ -1,0 +1,54 @@
+<div class="container main-container">
+
+    <h1>Nova Turma</h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form novalidate="novalidate" (ngSubmit)="adicionarTurma()" [formGroup]="turmaForm">
+                <div class="form-group">
+                    <label class="control-label">Escola</label>
+                    <select class="form-control" id="escolaId" formControlName="escolaId">
+                        <option *ngFor="let escola of escolas" value="{{ escola.escolaId}}">{{ escola.nome }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nome</label>
+                    <div>
+                        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)"  formControlName="nome" required/>
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sala</label>
+                    <div>
+                        <input class="form-control" id="sala" type="text" placeholder="Sala (requerido)" formControlName="sala"/>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Data Início</label>
+                    <div>
+                        <input class="form-control" id="dataInicio" type="date" placeholder="Data Início (requerido)" formControlName="dataInicio"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Data Fim</label>
+                    <div>
+                        <input class="form-control" id="dataFim" type="date" placeholder="Data Fim (requerido)" formControlName="dataFim"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Limite de Alunos</label>
+                    <div>
+                        <input class="form-control" id="limiteTurma" type="number" placeholder="Limite de Alunos na Turma (requerido)" formControlName="limiteTurma"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" [routerLink]="['/turma/listar-turmas']">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

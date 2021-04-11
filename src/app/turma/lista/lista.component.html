@@ -1,0 +1,41 @@
+<div class="container main-container">
+
+    <h1>Lista de Turmas</h1>
+
+    <p>
+        <a class="btn btn-info" [routerLink]="['/turma/cadastrar-turma']">Nova Turma</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Escola</th>
+                <th>Nome</th>
+                <th>Sala</th>
+                <th>Data Início</th>
+                <th>Data Fim</th>
+                <th>Limite de Alunos</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let turma of turmas">
+            <td>
+                {{ turma.nomeEscola }}
+            </td>
+            <td>
+                {{ turma.nome }}
+            </td>
+            <td>
+                {{ turma.sala }}
+            </td>
+            <td>
+                {{ turma.dataInicio | date: 'dd/MM/yyyy' }}
+            </td>
+            <td>
+                {{ turma.dataFim | date: 'dd/MM/yyyy' }}
+            </td>
+            <td>
+                {{ turma.limiteTurma }}
+            </td>
+        </tr>
+    </table>
+</div>
